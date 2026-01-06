@@ -1,0 +1,153 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #7c3aed;
+  --primary-dark: #5b21b6;
+  --secondary-color: #db2777;
+  --accent-color: #f472b6;
+  --text-color: #e2e8f0;
+  --light-text: #94a3b8;
+  --background: #0f172a;
+  --section-bg: #1e293b;
+  --card-bg: #1e293b;
+  --gradient-start: #7c3aed;
+  --gradiend-end: #db2777;
+  --nav-bg: rgba(39, 115, 28, 0.8);
+  --card-border: rgba(148,163,184, 0.1);
+}
+
+
+body {
+  line-height: 1.6;
+  color: var(--text-color);
+  background: var(--background);
+}
+
+.app {
+  opacity: 0; /*0 because i'm applying a fading animation*/
+  transform: translateY(20px); /*elements in the app feels like it's moing in the page in Y direction*/
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  width: 100%;
+  min-height: 100%;
+}
+
+.app.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(244, 114, 182, 0.3);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: all 0.3 ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+color: var(--accent-color);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Hero Section */
+
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, 
+  var(--gradient-start) 0%, 
+  var(--gradiend-end));
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 100px;
+}
+
+.hero-content {
+  flex: 1;
+  text-align: left;
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glitch {
+  font-size: 4.5rem;
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  position: relative;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+
+}
